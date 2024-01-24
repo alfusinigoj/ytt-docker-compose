@@ -1,0 +1,12 @@
+#@ load("@ytt:overlay", "overlay")
+#! This contains db service specific values for production
+#@overlay/match by=overlay.all
+---
+services:
+#@overlay/match by="name"
+- name: db
+  #@overlay/match missing_ok=True
+  #@overlay/merge
+  environment:
+    MYSQL_ROOT_PASSWORD: prodrootpassword
+    MYSQL_PASSWORD: prodpassword

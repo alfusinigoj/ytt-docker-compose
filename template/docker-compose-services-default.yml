@@ -1,0 +1,14 @@
+#@data/values-schema
+#! This is the schema/defaults for services  
+---
+version: '3.7'
+services:
+- name: ""
+  image: ""
+  restart: never
+  container_name: ""
+  ports:
+  - 8080:8080
+  #@schema/type any=True
+  environment: 
+

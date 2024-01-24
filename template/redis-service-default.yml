@@ -1,0 +1,9 @@
+#@data/values
+#! This contains redis service specific values
+---
+services:
+- name: redis
+  image: steeltoeoss/redis
+  restart: never
+  ports:
+  - 6379:6379

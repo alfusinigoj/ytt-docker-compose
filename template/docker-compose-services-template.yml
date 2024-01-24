@@ -1,0 +1,16 @@
+#@ load("@ytt:data", "data")
+#! This is the template for services 
+
+version: #@ data.values.version
+
+services:
+  #@ for/end service in data.values.services:
+  - name: #@ service.name
+    image: #@ service.image
+    restart: #@ service.restart
+    container_name: #@ service.container_name if service.container_name != "" else service.name
+    ports: #@ service.ports
+    environment: #@ service.environment
+
+
+
