@@ -1,4 +1,4 @@
-This repo shows a simple demonstration of using [ytt](https://carvel.dev/ytt/) and [yq](https://mikefarah.gitbook.io/yq) to generate docker compose file for multiple services and for multiple target environments.
+This repo shows a simple demonstration of using [ytt](https://carvel.dev/ytt/) and [yq](https://mikefarah.gitbook.io/yq) to generate docker compose file for multiple services targeting multiple environments.
 
 ### What is [ytt](https://carvel.dev/ytt/)?
 
@@ -6,9 +6,9 @@ It is a simple tool helps in shaping and templating YAML content, including, Kub
 
 For documentation, refer [here](https://carvel.dev/ytt/docs/v0.46.x/), there are lot of samples with playground, which can be found [here](https://carvel.dev/ytt/#playground)
 
-> Note: This demonstration just uses very few of the features of [ytt](https://carvel.dev/ytt/), like data values, overlay, if, etc in combination with [yq eval - command](https://mikefarah.gitbook.io/yq/commands/evaluate). There are lot of powerful feature that [ytt](https://carvel.dev/ytt/) tool contributes, to make use of. 
-
 ### Getting Started
+
+> Note: This demonstration just uses very few of the features of [ytt](https://carvel.dev/ytt/), like data values, overlay, etc. in combination with [yq eval - command](https://mikefarah.gitbook.io/yq/commands/evaluate). There are lot of powerful feature that [ytt](https://carvel.dev/ytt/) tool contributes, to make use of. 
 
 - Install [ytt](https://carvel.dev/ytt/) command line tool from [here](https://carvel.dev/ytt/docs/v0.46.x/install/)
 
@@ -43,5 +43,5 @@ For documentation, refer [here](https://carvel.dev/ytt/docs/v0.46.x/), there are
 
 ### Additional References
 
-- Documentation from Tanzu Development Center, [Getting Started with ytt](https://tanzu.vmware.com/developer/guides/ytt-gs/)
+- Documentation from **Tanzu Development Center**, [Getting Started with ytt](https://tanzu.vmware.com/developer/guides/ytt-gs/)
 - Refer this [docker-compose](https://github.com/UKP-SQuARE/square-core/blob/master/docker-compose.ytt.yaml) file for usage of [ytt](https://carvel.dev/ytt/) extensively.
