@@ -14,31 +14,31 @@ For documentation, refer [here](https://carvel.dev/ytt/docs/v0.46.x/), there are
 
 - Install [yq](https://mikefarah.gitbook.io/yq/) command line tool from [here](https://github.com/mikefarah/yq/#install)
 
-- The `template` folder here contains the template for the docker-compose file and the defaults. In this case, there is a default file for docker-compose itself. The defaults include each services too, here as an example, there is redis and db for demonstration purpose.
+- The `default_templates` folder here contains the template for the docker-compose file and the defaults. In this case, there is a default file for docker-compose itself. The defaults include each services too, here as an example, there is redis and db for demonstration purpose.
 
 - The other folders here `dev`, `prod`, etc. represents the target environments where it contains overlays as needed.
 
-- To demonstrate the example, to create `docker-compose.yml` for `dev` environment, execute below code from the root.
+- To demonstrate the example, to create `docker-compose.yml` for `dev` environment, execute below code from the root. The key here is that you are using the `dev` folder along with the `default_templates`, where `dev` folder contains the overlay values corresponding to dev environment.
 
     ```sh
-    ytt -f ./template/ -f ./dev/ | yq eval '.services |= with_entries(.key = .value.container_name)'
+    ytt -f ./default_templates/ -f ./dev/ | yq eval '.services |= with_entries(.key = .value.container_name)'
     ```
 
-- To demonstrate the example, to create `docker-compose.yml` for `prod` environment, execute below code from the root.
+- To demonstrate the example, to create `docker-compose.yml` for `prod` environment, execute below code from the root. . The key here is that you are using the `dev` folder along with the `default_templates`, where `dev` folder contains the overlay values corresponding to dev environment.
 
     ```sh
-    ytt -f ./template/ -f ./prod/ | yq eval '.services |= with_entries(.key = .value.container_name)'
+    ytt -f ./default_templates/ -f ./prod/ | yq eval '.services |= with_entries(.key = .value.container_name)'
     ```
 
-- You can pipe the output to create a file or use it on the fly as below.
+- To create a `docker-compose` file from the output, execute the below command. This command targets the dev environment.
 
     ```sh
-    ytt -f ./template/ -f ./dev/ | yq eval '.services |= with_entries(.key = .value.container_name)' > docker-compose.yml
+    ytt -f ./default_templates/ -f ./dev/ | yq eval '.services |= with_entries(.key = .value.container_name)' > docker-compose.yml
     ```
-    OR
+- To execute `docker compose up` from the produced output inline, execute the below command. This command targets the prod environment.
     
     ```sh
-    ytt -f ./template/ -f ./dev/ | yq eval '.services |= with_entries(.key = .value.container_name)' | docker compose -f- up
+    ytt -f ./default_templates/ -f ./prod/ | yq eval '.services |= with_entries(.key = .value.container_name)' | docker compose -f- up
     ```
 
 ### Additional References
