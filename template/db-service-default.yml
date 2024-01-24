@@ -2,10 +2,9 @@
 #! This contains db service specific values
 ---
 services:
-- name: db
+- container_name: db
   image: mysql:latest
   restart: always
-  container_name: mysqldb
   ports:
   - 33306:3306
   environment:

@@ -3,8 +3,8 @@
 #@overlay/match by=overlay.all
 ---
 services:
-#@overlay/match by="name"
-- name: redis
+#@overlay/match by="container_name"
+- container_name: redis
   #@overlay/match missing_ok=True
   #@overlay/merge
   restart: always

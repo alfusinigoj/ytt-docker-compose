@@ -2,7 +2,7 @@
 #! This contains redis service specific values
 ---
 services:
-- name: redis
+- container_name: redis
   image: steeltoeoss/redis
   restart: never
   ports:

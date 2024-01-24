@@ -5,10 +5,9 @@ version: #@ data.values.version
 
 services:
   #@ for/end service in data.values.services:
-  - name: #@ service.name
+  - container_name: #@ service.container_name
     image: #@ service.image
     restart: #@ service.restart
-    container_name: #@ service.container_name if service.container_name != "" else service.name
     ports: #@ service.ports
     environment: #@ service.environment
 
